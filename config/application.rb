@@ -2,6 +2,16 @@ require File.expand_path('../boot', __FILE__)
 
 require 'rails/all'
 
+
+# Require Single File for Services Folder
+#  require './app/services/chapter2/Gear.rb'
+#  require './lib/Logic.rb'
+
+#Required all the File Once of the Folder
+# Dir["./app/services/chapter2/*.rb"].each {|file| require file }
+Dir["./app/services/**/*.rb"].each {|file| require file } #incldue all the Folders and Sub folders as well
+Dir["./lib/*.rb"].each {|file| require file }
+
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
@@ -20,11 +30,9 @@ module BicycleTour
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
 
-    # config.autoload_paths += %W(#{config.root}/lib)
-    # config.autoload_paths += Dir["#{config.root}/lib/**/"]
 
-    load "#{Rails.root}/lib/Logic.rb"
-    load "#{Rails.root}/app/services/chapter2/Gear.rb"
+    # load "#{Rails.root}/lib/Logic.rb" # Load At the Time Loading Application
+    # load "#{Rails.root}/app/services/chapter2/Gear.rb"
 
     # config.active_record.raise_in_transactional_callbacks = true
     # Do not swallow errors in after_commit/after_rollback callbacks.
