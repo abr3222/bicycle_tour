@@ -9,8 +9,8 @@ require 'rails/all'
 
 #Required all the File Once of the Folder
 # Dir["./app/services/chapter2/*.rb"].each {|file| require file }
-Dir["./app/services/**/*.rb"].each {|file| require file } #incldue all the Folders and Sub folders as well
-Dir["./lib/*.rb"].each {|file| require file }
+Dir["./app/services/**/*.rb"].sort.each {|file| require file } #incldue all the Folders and Sub folders as well
+Dir["./lib/*.rb"].sort.each {|file| require file }
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
