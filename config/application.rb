@@ -24,7 +24,7 @@ module BicycleTour
     # config.autoload_paths += Dir["#{config.root}/lib/**/"]
 
     load "#{Rails.root}/lib/Logic.rb"
-    # load "#{Rails.root}/lib/Logic.rb"
+    load "#{Rails.root}/app/services/chapter2/Gear.rb"
 
     # config.active_record.raise_in_transactional_callbacks = true
     # Do not swallow errors in after_commit/after_rollback callbacks.
