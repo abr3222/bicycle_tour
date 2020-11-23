@@ -1,3 +1,23 @@
+class Gear
+  attr_reader :chainring, :cog
+
+  def initialize(chainring, cog)
+    @chainring = chainring
+    @cog = cog
+  end
+
+  def ratio
+    @chainring / @cog.to_f
+    # <-- road to ruin
+  end
+end
+
+# Have to Understand benifit (attr_reader) of default implementation via attr_reader
+# def cog
+#   @cog
+# end
+
+=begin
 # ===========   # Page 20        ================
 class Gear
   attr_reader :chainring, :cog, :rim, :tire
@@ -24,6 +44,7 @@ puts Gear.new(52, 11, 26, 1.5).gear_inches
 # -> 137.090909090909
 puts Gear.new(52, 11, 24, 1.25).gear_inches
 # -> 125.272727272727
+=end
 
 =begin
                           ===========   # Page 19        ================
