@@ -1,5 +1,45 @@
+# ======================================= Page #32 =================================================
+class Gear
+  attr_reader :chainring, :cog, :wheel
+
+  def initialize(chainring, cog, rim, tire)
+    @chainring = chainring
+    @cog = cog
+    @wheel = Wheel.new(rim, tire)
+  end
+
+  def ratio
+    chainring / cog.to_f
+  end
+
+  def gear_inches
+    ratio * wheel.diameter
+  end
+
+  Wheel = Struct.new(:rim, :tire) do
+    def diameter
+      rim + (tire * 2)
+    end
+  end
+
+end
+# ======================================= =================================================
+=begin
 class Gear
   attr_reader :chainring, :cog
+
+  # Gear Inches Function Sub Divided into Multiple
+  # def gear_inches
+  #   # tire goes around rim twice for diameter
+  #   ratio * (rim + (tire * 2))
+  # end
+
+  def gear_inches
+    ratio * diameter
+  end
+  def diameter
+    rim + (tire * 2)
+  end
 
   def initialize(chainring, cog)
     @chainring = chainring
@@ -11,7 +51,8 @@ class Gear
     # <-- road to ruin
   end
 end
-
+=end
+# ===============================================================================================
 # Have to Understand benifit (attr_reader) of default implementation via attr_reader
 # def cog
 #   @cog
